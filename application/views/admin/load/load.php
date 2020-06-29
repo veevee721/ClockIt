@@ -1,0 +1,9 @@
+<?php 
+    $this->load->view('admin/load/head');
+    $this->load->view('admin/load/top_bar');
+    $this->load->view('admin/load/side_bar');
+    $this->load->view('admin/load/foot_bar');
+    $this->load->view('admin/load/top_nav');
+    $this->load->view('admin/page/'.$page);
+    $this->load->view('admin/load/foot');
+?>

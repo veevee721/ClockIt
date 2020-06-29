@@ -11,11 +11,10 @@ class Admin extends CI_Controller {
 	}
 	public function index()
 	{
-		echo 'admin';
-		//$data = array(
-		//	'page' => 'login'
-		//);
-		//$this->load->view('ams/load/load', $data);
+		$data = array(
+			'page' => 'dashboard'
+		);
+		$this->load->view('admin/load/load', $data);
 	}
 	public function logout(){
 		$this->session->sess_destroy();
