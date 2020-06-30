@@ -150,4 +150,16 @@ class Admin_model extends CI_Model{
 
         return $query->result();
     }
+    public function get_roles(){
+        $query = $this->db->get('role');
+
+        return $query->result();
+    }
+    public function count_roles($role){
+        $this->db->where('role', $role);
+        $this->db->from('user');
+        $cnt = $this->db->count_all_results();
+        
+        return $cnt;
+    }
 }

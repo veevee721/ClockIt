@@ -3,7 +3,7 @@
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Administrators</h3>
+                <h3>Position</h3>
               </div>
 
               
@@ -13,7 +13,7 @@
               <div class="col-md-12 col-sm-12 ">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Create Administrator Account <small>adding Administrator Account</small></h2>
+                    <h2>Create Position Option <small>adding Position Option</small></h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -33,13 +33,13 @@
                             <?php
                         }
                     ?>
-                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action='<?php echo base_url(); ?>admin/process_add_admin' method='post'>
+                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action='<?php echo base_url(); ?>hr/process_add_position' method='post'>
 
                       <div class="item form-group">
-                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Username <span class="required">*</span>
+                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Position <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 ">
-                          <input type="text" name='username' id="first-name" required="required" class="form-control " placeholder='Input Username Here'>
+                          <input type="text" name='position' id="first-name" required="required" class="form-control " placeholder='Input Position Option Here'>
                         </div>
                       </div>
                       
@@ -61,7 +61,7 @@
             <div class="col-md-12 col-sm-12 ">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Administrator <small>Account</small></h2>
+                    <h2>Position <small>Option</small></h2>
                     
                     <div class="clearfix"></div>
                   </div>
@@ -74,7 +74,7 @@
                         <thead>
                             <tr>
                             <th>ID</th>
-                            <th>Username</th>
+                            <th>Position</th>
                             <th>Status</th>
                             <th>Date Added</th>
                             <th>Date Last Modified</th>
@@ -83,11 +83,11 @@
                         </thead>
                         <tbody>
                             <?php 
-                                foreach($admins as $row){
+                                foreach($positions as $row){
                                     ?>
                                         <tr>
                                             <td><?php echo $row->id; ?></td>
-                                            <td><?php echo $row->username; ?></td>
+                                            <td><?php echo $row->position; ?></td>
                                             <td><?php 
                                                 if($row->status == 1){
                                                     echo 'Active';
@@ -95,16 +95,9 @@
                                             ?></td>
                                             <td><?php echo $row->date_added; ?></td>
                                             <td><?php echo $row->date_modified; ?></td>
-                                            <td><?php 
-                                                $user = $this->session->userdata('username');
-                                                if($row->username == $user){
-                                                    echo 'Active User';
-                                                }else{
-                                                    ?>
-                                                    <a href='<?php echo base_url(); ?>admin/archive_user/<?php echo $row->id; ?>'><abbr title="Archive Administrator Account"><i class="fa fa-archive"></i></abbr></a>
-                                                    <?php
-                                                }
-                                            ?></td>
+                                            <td><a href='<?php echo base_url(); ?>hr/edit_position/<?php echo $row->id; ?>'><abbr title="Edit Position Option"><i class="fa fa-edit"></i></abbr></a>
+                                            <a href='<?php echo base_url(); ?>hr/archive_position/<?php echo $row->id; ?>'><abbr title="Archive Position Option"><i class="fa fa-archive"></i></abbr></a>
+                                            </td>
                                         </tr>
                                     <?php
                                 }

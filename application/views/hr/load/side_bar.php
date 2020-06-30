@@ -24,8 +24,13 @@
                       <li><a href="<?php echo base_url(); ?>hr/archived_leave">Archived Leaved Request</a></li>
                     </ul>
                   </li>
+                  <?php 
+                    if($this->session->userdata('role') == 2){
+                  ?>
                   <li><a href="<?php echo base_url(); ?>hr/members"><i class="fa fa-group"></i> Members</a>
-                    
+                    <?php 
+                    }
+                    ?>
                   </li>
                   
               </div>

@@ -12,8 +12,8 @@ class Admin extends CI_Controller {
 		}
 		
 	}
-	public function index()
-	{
+	public function index(){
+		
 		$data = array(
 			'page' => 'dashboard',
 			'users' => $this->admin_model->count_users(),
@@ -21,9 +21,19 @@ class Admin extends CI_Controller {
 			'offices' => $this->admin_model->count_offices(),
 			'audits' => $this->admin_model->count_audits(),
 			'logs' => $this->admin_model->count_logs(),
-			'reports' => $this->admin_model->count_reports()
+			'reports' => $this->admin_model->count_reports(),
+			
 		);
 		$this->load->view('admin/load/load', $data);
+	}
+	public function chart_roles(){
+		$json = "[";
+		$roles = $this->admin_model->get_roles();
+		foreach ($roles as $row) {
+			$json .= "{y: " . "'" . $row->role . "'" . " , a: " . $this->admin_model->count_roles($row->id) . "},";
+		}
+		$json .= "]";
+		echo $json;
 	}
 	public function administrator(){
 		$data = array(

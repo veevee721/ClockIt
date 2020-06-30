@@ -35,6 +35,9 @@
     <script src="<?php echo base_url(); ?>/vendors/jszip/dist/jszip.min.js"></script>
     <script src="<?php echo base_url(); ?>/vendors/pdfmake/build/pdfmake.min.js"></script>
     <script src="<?php echo base_url(); ?>/vendors/pdfmake/build/vfs_fonts.js"></script>
+    <!-- morris.js -->
+    <script src="<?php echo base_url(); ?>/vendors/raphael/raphael.min.js"></script>
+    <script src="<?php echo base_url(); ?>/vendors/morris.js/morris.min.js"></script>
 
     <!-- Custom Theme Scripts -->
     <script src="<?php echo base_url(); ?>/build/js/custom.min.js"></script>
