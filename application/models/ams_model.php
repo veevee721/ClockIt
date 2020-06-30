@@ -24,4 +24,5 @@ class Ams_model extends CI_Model{
        $this->session->set_userdata($data);
        
     }
+    
 }
