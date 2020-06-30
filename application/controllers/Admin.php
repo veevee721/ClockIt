@@ -6,7 +6,10 @@ class Admin extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('admin_model');
-
+		$role = $this->session->userdata('role');
+		if($role != 1){
+			redirect('ams');
+		}
 		
 	}
 	public function index()

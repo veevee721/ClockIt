@@ -18,8 +18,9 @@ class Ams_model extends CI_Model{
                 'username' => $row->username,
                 'status' => $row->status,
                 'role' => $row->role,
+                'office' => $row->office
             );    
-            $cnt++;
+            
         } 
        $this->session->set_userdata($data);
        
