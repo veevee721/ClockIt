@@ -81,6 +81,7 @@
                                     <?php 
                                         foreach($ams as $row){
                                             ?>
+                                            <tr>
                                             <td><?php echo $row->date; ?></td>
                                             <td><?php echo $row->time; ?></td>
                                             <td><?php if($row->status == 0){
@@ -89,6 +90,7 @@
                                                 echo 'In';
                                             } ?></td>
                                             <td><?php echo $row->remarks; ?></td>
+                                            </tr>
                                             <?php
                                         }
                                     ?>

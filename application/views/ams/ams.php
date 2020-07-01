@@ -86,7 +86,7 @@
                       foreach($member as $row){
                         ?>
                         <h1><?php echo $row->fname.' '.$row->lname;?></h1>
-                        <h1><?php echo $row->barcode;?></h1>
+                        <h1><?php echo $row->plantilla;?></h1>
                         <?php
                       }
                     }else{
@@ -98,7 +98,7 @@
                    ?>
                    
                     
-                    <input type="text" tabindex="1" class="form-control" name="barcode" autofocus placeholder="Please Scan Your ID Here">
+                    <input type="text" tabindex="1" class="form-control" name="plantilla" autofocus placeholder="Please Scan Your ID Here">
                     <?php echo form_close(); ?>
                     <h1><?php echo date("m/d/Y"); ?></h1><br>
                     <h1 id="txt"><strong></strong></h1>
