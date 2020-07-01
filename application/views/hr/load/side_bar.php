@@ -15,14 +15,11 @@
                   <li><a><i class="fa fa-group"></i> Employee <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="<?php echo base_url(); ?>hr/employee">Add Employee</a></li>
-                      <li><a href="<?php echo base_url(); ?>hr/archived_employee">Archived Office</a></li>
+                      <li><a href="<?php echo base_url(); ?>hr/archived_employee">Archived Employee</a></li>
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-file"></i> Leave <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="<?php echo base_url(); ?>hr/leave">Leave Request</a></li>
-                      <li><a href="<?php echo base_url(); ?>hr/archived_leave">Archived Leaved Request</a></li>
-                    </ul>
+                  <li><a href="<?php echo base_url(); ?>hr/request"><i class="fa fa-file"></i> Leave Request</a>
+                    
                   </li>
                   <?php 
                     if($this->session->userdata('role') == 2){

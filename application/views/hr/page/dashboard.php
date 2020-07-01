@@ -40,18 +40,14 @@
 
           <div class="row">
             <div class="col-md-12 col-sm-12 ">
-              <div class="dashboard_graph">
-
-                <div class="row x_title">
-                  <div class="col-md-6">
-                    <h3>Network Activities <small>Graph title sub-title</small></h3>
+              <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Offices <small>Offices and Their Members</small></h2>
+                    <div class="clearfix"></div>
                   </div>
-                 
-                </div>
-
-               
-               
-                <div class="clearfix"></div>
+                  <div class="x_content">
+                    <div id="bar-chart-office" style="height:280px;"></div>
+                  </div>
               </div>
             </div>
 
@@ -61,3 +57,22 @@
       
         </div>
         <!-- /page content -->
+        <script src="<?php echo base_url(); ?>vendors/raphael/raphael.min.js"></script>
+    <script src="<?php echo base_url(); ?>vendors/morris.js/morris.min.js"></script>
+    <script>
+        $(document).ready(function () {
+          Morris.Bar({
+            element: 'bar-chart-office',
+            data: <?php echo $office; ?>,
+            xkey: 'office',
+            ykeys: ['count'],
+            labels: ['Total Number']
+            
+          });
+        });
+        
+
+      
+        
+        
+    </script>

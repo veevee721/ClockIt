@@ -33,6 +33,13 @@ class Ams extends CI_Controller {
 		);
 		$this->load->view('ams/load/load', $data);
 	}
+	public function ams(){
+		$data = array(
+			'member' => '',
+      		'status' => 'a'
+		);
+		$this->load->view('ams/ams', $data);
+	}
 	public function process_login(){
 		$chk = $this->ams_model->check_user($this->input->post('username'), md5($this->input->post('password')));
 		if($chk == 1){

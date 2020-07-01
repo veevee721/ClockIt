@@ -40,7 +40,7 @@
                                     ?>
                                         <tr>
                                             <td><?php echo $row->id; ?></td>
-                                            <td><?php echo $row->office; ?></td>
+                                            <td><?php echo $row->office.' ('.$row->abbr.')'; ?></td>
                                             <td><?php 
                                                 if($row->status == 0){
                                                     echo 'Archived';

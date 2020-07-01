@@ -12,8 +12,7 @@ class Admin extends CI_Controller {
 		}
 		
 	}
-	public function index(){
-		
+	public function index()	{
 		$data = array(
 			'page' => 'dashboard',
 			'users' => $this->admin_model->count_users(),
@@ -22,18 +21,11 @@ class Admin extends CI_Controller {
 			'audits' => $this->admin_model->count_audits(),
 			'logs' => $this->admin_model->count_logs(),
 			'reports' => $this->admin_model->count_reports(),
-			
+			'role' => $this->admin_model->count_roles(),
+			'office' => $this->admin_model->count_office(),
+			'audit' => $this->admin_model->get_audit(),
 		);
 		$this->load->view('admin/load/load', $data);
-	}
-	public function chart_roles(){
-		$json = "[";
-		$roles = $this->admin_model->get_roles();
-		foreach ($roles as $row) {
-			$json .= "{y: " . "'" . $row->role . "'" . " , a: " . $this->admin_model->count_roles($row->id) . "},";
-		}
-		$json .= "]";
-		echo $json;
 	}
 	public function administrator(){
 		$data = array(
@@ -123,6 +115,7 @@ class Admin extends CI_Controller {
 		}else{
 			$data1 = array(
 				'office' => strtoupper($this->input->post('office')),
+				'abbr' => strtoupper($this->input->post('abbr')),
 				'status' => 1,
 				'date_added' => date('Y-m-d')
 			);
@@ -183,6 +176,7 @@ class Admin extends CI_Controller {
 		}else{
 			$data1 = array(
 				'office' => strtoupper($this->input->post('office')),
+				'abbr' => strtoupper($this->input->post('abbr'))
 				
 			);
 			$this->admin_model->update_office($this->input->post('id'), $data1);
@@ -203,6 +197,7 @@ class Admin extends CI_Controller {
 		);
 		$this->load->view('admin/load/load', $data);
 	}
+	
 	public function logout(){
 		$this->session->sess_destroy();
 		redirect('ams');

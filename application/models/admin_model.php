@@ -150,16 +150,30 @@ class Admin_model extends CI_Model{
 
         return $query->result();
     }
-    public function get_roles(){
+    public function count_roles(){
         $query = $this->db->get('role');
+        $data = '[';
+        foreach($query->result() as $row){
+            $this->db->where('role', $row->id);
+            $this->db->from('user');
+            $cnt = $this->db->count_all_results();
+            $data .= "{ role: '".$row->role."', count : '".$cnt."' }, ";
+        }
+        $data .= ']';
 
-        return $query->result();
+        return $data;
     }
-    public function count_roles($role){
-        $this->db->where('role', $role);
-        $this->db->from('user');
-        $cnt = $this->db->count_all_results();
-        
-        return $cnt;
+    public function count_office(){
+        $query = $this->db->get('office');
+        $data = '[';
+        foreach($query->result() as $row){
+            $this->db->where('office', $row->id);
+            $this->db->from('user');
+            $cnt = $this->db->count_all_results();
+            $data .= "{ office: '".$row->abbr."', count : '".$cnt."' }, ";
+        }
+        $data .= ']';
+
+        return $data;
     }
 }

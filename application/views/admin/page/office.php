@@ -42,7 +42,13 @@
                           <input type="text" name='office' id="first-name" required="required" class="form-control " placeholder='Input Office Name Here'>
                         </div>
                       </div>
-                      
+                      <div class="item form-group">
+                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Abbreviation <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 ">
+                          <input type="text" name='abbr' id="first-name" required="required" class="form-control " placeholder='Input Office Abbreviation Here'>
+                        </div>
+                      </div>
                       
                       
                       <div class="ln_solid"></div>
@@ -87,7 +93,7 @@
                                     ?>
                                         <tr>
                                             <td><?php echo $row->id; ?></td>
-                                            <td><?php echo $row->office; ?></td>
+                                            <td><?php echo $row->office.' ('.$row->abbr.')'; ?></td>
                                             <td><?php 
                                                 if($row->status == 1){
                                                     echo 'Active';
