@@ -18,6 +18,9 @@
                       <li><a href="<?php echo base_url(); ?>hr/archived_employee">Archived Employee</a></li>
                     </ul>
                   </li>
+                  <li><a href="<?php echo base_url(); ?>hr/file_request"><i class="fa fa-file"></i> File Leave Request</a>
+                    
+                  </li>
                   <li><a href="<?php echo base_url(); ?>hr/request"><i class="fa fa-file"></i> Leave Request</a>
                     
                   </li>

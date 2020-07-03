@@ -301,6 +301,83 @@ class Hr extends CI_Controller {
 		);
 		$this->load->view('hr/load/load', $data);
 	}
+	public function update_profile(){
+		$data = array(
+			'page' => 'update_profile',
+			'name' => $this->hr_model->get_name($this->session->userdata('username')),
+			'profile' => $this->hr_model->get_my_profile($this->session->userdata('username')),
+			'position' => $this->hr_model->get_positions(),
+			'office' => $this->hr_model->get_office(),
+			'role' => $this->hr_model->get_role(),
+		);
+		$this->load->view('hr/load/load', $data);
+	}
+	public function process_update_profile(){
+		$data1 = array(
+			'prefix' => $this->input->post('prefix'),
+			'fname' => strtoupper($this->input->post('fname')),
+			'mname' => strtoupper($this->input->post('mname')),
+			'lname' => strtoupper($this->input->post('lname')),
+			'extension' => strtoupper($this->input->post('extension')),
+			'suffix' => strtoupper($this->input->post('suffix')),
+			'bdate' => $this->input->post('bdate'),
+			'gender' => $this->input->post('gender'),
+			'assignment' => $this->input->post('assignment'),
+			'position' => $this->input->post('position'),
+		);
+		$this->hr_model->update_profile($this->input->post('id'), $data1);
+		redirect('hr/view_profile/'.$this->session->userdata('username'));
+	}
+	public function update_image(){
+		$data = array(
+			'page' => 'update_image',
+			'name' => $this->hr_model->get_name($this->session->userdata('username')),
+			'profile' => $this->hr_model->get_my_profile($this->session->userdata('username')),
+			
+		);
+		$this->load->view('hr/load/load', $data);
+	}
+	public function process_update_image(){
+		$config['upload_path'] = './img/profile/'; 
+		$config['allowed_types'] = 'jpg|jpeg';
+		$config['max_size'] = '3000';
+		$config['overwrite'] = true;
+		$config['file_name'] = $this->input->post('plantilla');
+		$this->load->library('upload', $config);
+		$this->upload->do_upload('userfile');
+		redirect('hr/view_profile/'.$this->session->userdata('username'));
+	}
+	public function file_request(){
+		$data = array(
+			'page' => 'file_request',
+			'name' => $this->hr_model->get_name($this->session->userdata('username')),
+			'request' => $this->hr_model->get_my_request($this->session->userdata('username')),
+			'leave_type' => $this->hr_model->get_leave_type()
+			
+		);
+		$this->load->view('hr/load/load', $data);
+	}
+	public function process_add_leave(){
+		$data1 = array(
+			'plantilla' => $this->session->userdata('username'),
+			'request' => $this->input->post('request'),
+			'date_start' => $this->input->post('date_start'),
+			'date_end' => $this->input->post('date_end'),
+			'status' => 0,
+			'date_added' => date('Y-m-d')
+		);
+		$this->hr_model->add_leave($data1);
+		$data = array(
+			'page' => 'file_request',
+			'name' => $this->hr_model->get_name($this->session->userdata('username')),
+			'request' => $this->hr_model->get_my_request($this->session->userdata('username')),
+			'leave_type' => $this->hr_model->get_leave_type(),
+			'type' => 'success',
+			'message' => 'Filed a Request for Leave'
+			
+		);
+		$this->load->view('hr/load/load', $data);
+	}
 	public function logout(){
 		$this->session->sess_destroy();
 		redirect('ams');

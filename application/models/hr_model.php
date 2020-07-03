@@ -208,6 +208,17 @@ class Hr_model extends CI_Model{
     public function approve_request($id, $data){
         $this->db->where('id', $id);
         $this->db->update('request', $data);
+        $this->db->where('id', $id);
+        $query = $this->db->get('request');
+        $plantilla = '';
+        foreach($query->result() as $row){
+            $plantilla = $row->plantilla;
+        }
+        $data2 = array(
+            'status' => 4
+        );
+        $this->db->where('plantilla', $plantilla);
+        $this->db->update('staff', $data2);
         $data1 = array(
             'user' => $this->session->userdata('username'),
             'action' => 'Approved Leave Request',
@@ -217,6 +228,17 @@ class Hr_model extends CI_Model{
     public function deny_request($id, $data){
         $this->db->where('id', $id);
         $this->db->update('request', $data);
+        $this->db->where('id', $id);
+        $query = $this->db->get('request');
+        $plantilla = '';
+        foreach($query->result() as $row){
+            $plantilla = $row->plantilla;
+        }
+        $data2 = array(
+            'status' => 1
+        );
+        $this->db->where('plantilla', $plantilla);
+        $this->db->update('staff', $data2);
         $data1 = array(
             'user' => $this->session->userdata('username'),
             'action' => 'Denied Leave Request',
@@ -244,5 +266,39 @@ class Hr_model extends CI_Model{
         $data .= ']';
 
         return $data;
+    }
+    public function get_my_profile($plantilla){
+        $this->db->where('plantilla', $plantilla);
+        $query = $this->db->get('staff');
+
+        return $query->result();
+    }
+    public function update_profile($id, $data){
+        $this->db->where('id', $id);
+        $this->db->update('staff', $data);
+        $data1 = array(
+            'user' => $this->session->userdata('username'),
+            'action' => 'Updated Personal Profile',
+        );
+        $this->db->insert('audit', $data1);
+    }
+    public function get_my_request($plantilla){
+        $this->db->where('plantilla', $plantilla);
+        $query = $this->db->get('request');
+
+        return $query->result();
+    }
+    public function get_leave_type(){
+        $query = $this->db->get('leave_type');
+
+        return $query->result();
+    }
+    public function add_leave($data){
+        $this->db->insert('request', $data);
+        $data1 = array(
+            'user' => $this->session->userdata('username'),
+            'action' => 'Filed Request for Leave',
+        );
+        $this->db->insert('audit', $data1);
     }
 }

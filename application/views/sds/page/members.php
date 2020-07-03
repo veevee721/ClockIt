@@ -3,7 +3,7 @@
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Officemates</h3>
+                <h3>Office Heads</h3>
               </div>
 
               
@@ -28,6 +28,7 @@
                             <h4 class="brief"><i><?php echo $row->position?></i></h4>
                             <div class="left col-md-7 col-sm-7">
                               <h2><?php echo $row->prefix.' '.$row->fname.' '.$row->mname.' '.$row->lname.', '.$row->extension.' '.$row->suffix; ?></h2>
+                              <h2><?php echo $row->office; ?></h2>
                               <?php 
                                 if($row->status == 1){
                                   ?>

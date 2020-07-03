@@ -24,10 +24,10 @@
               ?>
                   </a>
                   <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item"  href="<?php echo base_url(); ?>hr/view_profile/<?php echo $this->session->userdata('username'); ?>"><i class="fa fa-eye pull-right"></i> View Profile</a>
-                    <a class="dropdown-item"  href="<?php echo base_url(); ?>hr/update_profile/<?php echo $this->session->userdata('username'); ?>"><i class="fa fa-edit pull-right"></i> Update Profile</a>
-                    <a class="dropdown-item"  href="<?php echo base_url(); ?>hr/update_image/<?php echo $this->session->userdata('username'); ?>"><i class="fa fa-upload pull-right"></i> Update Image</a>
-                    <a class="dropdown-item"  href="<?php echo base_url(); ?>hr/logout"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                  <a class="dropdown-item"  href="<?php echo base_url(); ?>sds/view_profile/<?php echo $this->session->userdata('username'); ?>"><i class="fa fa-eye pull-right"></i> View Profile</a>
+                    <a class="dropdown-item"  href="<?php echo base_url(); ?>sds/update_profile/<?php echo $this->session->userdata('username'); ?>"><i class="fa fa-edit pull-right"></i> Update Profile</a>
+                    <a class="dropdown-item"  href="<?php echo base_url(); ?>sds/update_image/<?php echo $this->session->userdata('username'); ?>"><i class="fa fa-upload pull-right"></i> Update Image</a>
+                    <a class="dropdown-item"  href="<?php echo base_url(); ?>sds/logout"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
                   </div>
                 </li>
 

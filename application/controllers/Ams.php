@@ -19,6 +19,8 @@ class Ams extends CI_Controller {
 				redirect('hr');
 			}elseif($role == 3){
 				redirect('sds');
+			}elseif($role == 2){
+				redirect('head');
 			}elseif($role == 4){
 				redirect('office_admin');
 			}else{

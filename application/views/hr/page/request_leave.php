@@ -83,7 +83,7 @@
                                       <?php
                                     }else{
                                       ?>
-                                         <a href='<?php echo base_url(); ?>hr/approve/<?php echo $row->id; ?>'><abbr title="Approve Request"><i class="fa fa-check"></i></abbr></a>
+                                         <a href='<?php echo base_url(); ?>hr/approve_request/<?php echo $row->id; ?>'><abbr title="Approve Request"><i class="fa fa-check"></i></abbr></a>
                                       <?php
                                     }
                                   ?>
