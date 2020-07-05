@@ -26,7 +26,7 @@
                   if(!empty($name)){
                     echo $name;
                   }else{
-                    echo 'Head';
+                    echo 'Member';
                   }
                 ?></h2>
               </div>

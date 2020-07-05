@@ -3,7 +3,7 @@
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Office Heads</h3>
+                <h3>Officemates</h3>
               </div>
 
               

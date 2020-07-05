@@ -6,8 +6,7 @@
                   <li><a href="<?php echo base_url(); ?>"><i class="fa fa-home"></i> Dashboard</a>
                     
                   </li>
-                  <li><a href="<?php echo base_url(); ?>head/reports"><i class="fa fa-file"></i> Reports</a>
-                  <li><a href="<?php echo base_url(); ?>head/file_request"><i class="fa fa-file"></i> File Leave Request</a>
+                  <li><a href="<?php echo base_url(); ?>member/file_request"><i class="fa fa-file"></i> File Leave Request</a>
                     
                   </li>
                   </li>

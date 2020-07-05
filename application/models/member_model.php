@@ -1,6 +1,6 @@
 <?php 
 
-class Head_model extends CI_Model{
+class Member_model extends CI_Model{
     public function get_name($plantilla){
         $this->db->where('plantilla', $plantilla);
         $query = $this->db->get('staff');
@@ -17,7 +17,6 @@ class Head_model extends CI_Model{
         $this->db->join('position', 'position.id = staff.position');
         $this->db->select('user.role as role, staff.id as id, staff.plantilla as plantilla, staff.prefix as prefix, staff.fname as fname, staff.mname as mname, staff.lname as lname, staff.extension as extension, staff.suffix as suffix, staff.bdate as bdate, staff.gender as gender, position.position as position, office.abbr as office, staff.status as status, staff.date_added as date_added, staff.date_modified as date_modified');
         $this->db->where('staff.assignment', $this->session->userdata('office'));
-        $this->db->where('staff.plantilla !=', $this->session->userdata('username'));
         $query = $this->db->get('staff');
 
         return $query->result();
@@ -92,24 +91,6 @@ class Head_model extends CI_Model{
         $data1 = array(
             'user' => $this->session->userdata('username'),
             'action' => 'Updated Personal Profile',
-        );
-        $this->db->insert('audit', $data1);
-    }
-    public function assign_employee($username, $data){
-        $this->db->where('username', $username);
-        $this->db->update('user' , $data);
-        $data1 = array(
-            'user' => $this->session->userdata('username'),
-            'action' => 'Assigned Member to be an Office Administrator',
-        );
-        $this->db->insert('audit', $data1);
-    }
-    public function unassign_employee($username, $data){
-        $this->db->where('username', $username);
-        $this->db->update('user', $data);
-        $data1 = array(
-            'user' => $this->session->userdata('username'),
-            'action' => 'Assigned Member to be an Office Administrator',
         );
         $this->db->insert('audit', $data1);
     }

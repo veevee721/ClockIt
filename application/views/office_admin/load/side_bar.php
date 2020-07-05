@@ -6,8 +6,13 @@
                   <li><a href="<?php echo base_url(); ?>"><i class="fa fa-home"></i> Dashboard</a>
                     
                   </li>
-                  <li><a href="<?php echo base_url(); ?>head/reports"><i class="fa fa-file"></i> Reports</a>
-                  <li><a href="<?php echo base_url(); ?>head/file_request"><i class="fa fa-file"></i> File Leave Request</a>
+                  <li><a href="<?php echo base_url(); ?>office_admin/records"><i class="fa fa-file"></i> Insert AMS Record</a>
+                    
+                  </li>
+                  <li><a href="<?php echo base_url(); ?>office_admin/reports"><i class="fa fa-file"></i> Personal Reports</a>
+                    
+                  </li>
+                  <li><a href="<?php echo base_url(); ?>office_admin/file_request"><i class="fa fa-file"></i> File Leave Request</a>
                     
                   </li>
                   </li>

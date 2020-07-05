@@ -21,6 +21,7 @@
                   <li><a href="<?php echo base_url(); ?>hr/file_request"><i class="fa fa-file"></i> File Leave Request</a>
                     
                   </li>
+                  <li><a href="<?php echo base_url(); ?>hr/reports"><i class="fa fa-file"></i> Personal Reports</a>
                   <li><a href="<?php echo base_url(); ?>hr/request"><i class="fa fa-file"></i> Leave Request</a>
                     
                   </li>

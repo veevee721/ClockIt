@@ -74,7 +74,7 @@ class Head extends CI_Controller {
 			'office' => $this->head_model->get_office(),
 			'role' => $this->head_model->get_role(),
 		);
-		$this->load->view('sds/load/load', $data);
+		$this->load->view('head/load/load', $data);
 	}
 	public function process_update_profile(){
 		$data1 = array(
@@ -124,6 +124,37 @@ class Head extends CI_Controller {
 		);
 		$this->head_model->assign_employee($this->uri->segment(3), $data);
 		redirect('head');
+	}
+	public function reports(){
+		$data = array(
+			'page' => 'movs',
+			'name' => $this->head_model->get_name($this->session->userdata('username')),
+			'members' => $this->head_model->get_members(),
+			'report' => $this->head_model->get_report($this->session->userdata('username'))
+			
+			
+		);
+		$this->load->view('head/load/load', $data);
+	}
+	public function process_insert_mov(){
+		$data = array(
+			'plantilla' => $this->session->userdata('username'),
+			'report' => $this->input->post('report'),
+			'date_added' => date('Y-m-d')
+		);
+		$this->member_model->insert_mov($data);
+		$data = array(
+			'page' => 'movs',
+			'name' => $this->head_model->get_name($this->session->userdata('username')),
+			'members' => $this->head_model->get_members(),
+			'report' => $this->head_model->get_report($this->session->userdata('username')),
+			'type' => 'success',
+			'message' => 'Successfully Filed a Report'
+			
+			
+		);
+		$this->load->view('head/load/load', $data);
+		
 	}
 	public function logout(){
 		$this->session->sess_destroy();

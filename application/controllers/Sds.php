@@ -110,6 +110,37 @@ class Sds extends CI_Controller {
 		$this->upload->do_upload('userfile');
 		redirect('sds/view_profile/'.$this->session->userdata('username'));
 	}
+	public function reports(){
+		$data = array(
+			'page' => 'movs',
+			'name' => $this->sds_model->get_name($this->session->userdata('username')),
+			'members' => $this->sds_model->get_members(),
+			'report' => $this->sds_model->get_report($this->session->userdata('username'))
+			
+			
+		);
+		$this->load->view('sds/load/load', $data);
+	}
+	public function process_insert_mov(){
+		$data = array(
+			'plantilla' => $this->session->userdata('username'),
+			'report' => $this->input->post('report'),
+			'date_added' => date('Y-m-d')
+		);
+		$this->member_model->insert_mov($data);
+		$data = array(
+			'page' => 'movs',
+			'name' => $this->sds_model->get_name($this->session->userdata('username')),
+			'members' => $this->sds_model->get_members(),
+			'report' => $this->sds_model->get_report($this->session->userdata('username')),
+			'type' => 'success',
+			'message' => 'Successfully Filed a Report'
+			
+			
+		);
+		$this->load->view('sds/load/load', $data);
+		
+	}
 	public function logout(){
 		$this->session->sess_destroy();
 		redirect('ams');

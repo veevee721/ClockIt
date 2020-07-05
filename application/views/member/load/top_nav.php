@@ -19,15 +19,15 @@
                 if(!empty($name)){
                   echo $name;
                 }else{
-                  echo 'Head';
+                  echo 'Office Admin';
                 }
               ?>
                   </a>
                   <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item"  href="<?php echo base_url(); ?>head/view_profile/<?php echo $this->session->userdata('username'); ?>"><i class="fa fa-eye pull-right"></i> View Profile</a>
-                    <a class="dropdown-item"  href="<?php echo base_url(); ?>head/update_profile/<?php echo $this->session->userdata('username'); ?>"><i class="fa fa-edit pull-right"></i> Update Profile</a>
-                    <a class="dropdown-item"  href="<?php echo base_url(); ?>head/update_image/<?php echo $this->session->userdata('username'); ?>"><i class="fa fa-upload pull-right"></i> Update Image</a>
-                    <a class="dropdown-item"  href="<?php echo base_url(); ?>head/logout"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                  <a class="dropdown-item"  href="<?php echo base_url(); ?>member/view_profile/<?php echo $this->session->userdata('username'); ?>"><i class="fa fa-eye pull-right"></i> View Profile</a>
+                    <a class="dropdown-item"  href="<?php echo base_url(); ?>member/update_profile/<?php echo $this->session->userdata('username'); ?>"><i class="fa fa-edit pull-right"></i> Update Profile</a>
+                    <a class="dropdown-item"  href="<?php echo base_url(); ?>member/update_image/<?php echo $this->session->userdata('username'); ?>"><i class="fa fa-upload pull-right"></i> Update Image</a>
+                    <a class="dropdown-item"  href="<?php echo base_url(); ?>member/logout"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
                   </div>
                 </li>
 

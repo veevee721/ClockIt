@@ -94,4 +94,18 @@ class Sds_model extends CI_Model{
         );
         $this->db->insert('audit', $data1);
     }
+    public function get_report($plantilla){
+        $this->db->where('plantilla', $plantilla);
+        $query = $this->db->get('mov');
+
+        return $query->result();
+    }
+    public function insert_mov($data){
+        $this->db->insert('mov', $data);
+        $data1 = array(
+            'user' => $this->session->userdata('username'),
+            'action' => 'Filed a Report',
+        );
+        $this->db->insert('audit', $data1);
+    }
 }

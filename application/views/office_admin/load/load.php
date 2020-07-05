@@ -1,0 +1,9 @@
+<?php 
+    $this->load->view('office_admin/load/head');
+    $this->load->view('office_admin/load/top_bar');
+    $this->load->view('office_admin/load/side_bar');
+    $this->load->view('office_admin/load/foot_bar');
+    $this->load->view('office_admin/load/top_nav');
+    $this->load->view('office_admin/page/'.$page);
+    $this->load->view('office_admin/load/foot');
+?>
