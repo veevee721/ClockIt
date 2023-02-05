@@ -38,7 +38,7 @@ class Ams extends CI_Controller {
 	public function ams(){
 		$data = array(
 			'member' => '',
-      		'status' => 'a'
+                        'status' => 'a'
 		);
 		$this->load->view('ams/ams', $data);
 	}
